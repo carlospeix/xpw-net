@@ -6,6 +6,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{5F3B6876-6CAA-4891-B43F-7A072B4E2D00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{D69DAB34-00D9-4BD8-9FC8-F880EFA5D3BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2526B86A-D6ED-4812-BD5E-047181E351B2} = {2526B86A-D6ED-4812-BD5E-047181E351B2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
