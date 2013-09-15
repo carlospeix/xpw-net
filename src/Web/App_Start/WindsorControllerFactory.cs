@@ -36,7 +36,7 @@ namespace xpw.Web
         private void RegisterControllers()
         {
             _container.Register(
-                Types.FromAssembly(Assembly.GetExecutingAssembly()).
+                Classes.FromAssembly(Assembly.GetExecutingAssembly()).
                 BasedOn<IController>().
                 LifestyleTransient());
         }
