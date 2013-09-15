@@ -26,8 +26,6 @@ namespace xpw.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             //RegisterRepositories();
             //RegisterQueries();
-
-            //MetadataBuilderConfig.Start(_container);
         }
 
         public static void Dispose()
@@ -87,13 +85,6 @@ namespace xpw.Web
         //        .FromAssembly(Assembly.GetAssembly(typeof(Query<>)))
         //        .BasedOn(typeof(IQuery<>))
         //        .WithService.AllInterfaces());
-        //}
-
-        //private static void RegisterGlobalFilters(GlobalFilterCollection filters)
-        //{
-        //    //filters.Add(new RequestTimingFilter(), 1);
-        //    filters.Add(new HandleErrorAttribute(), 2);
-        //    filters.Add(_container.Resolve<SessionPerActionFilter>(), 3);
         //}
     }
 }

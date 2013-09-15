@@ -20,23 +20,6 @@ namespace xpw.Web
             RegisterControllers();
         }
 
-        //protected override Type GetControllerType(RequestContext requestContext, string controllerName)
-        //{
-        //    if (controllerName.Equals("Generic"))
-        //        return BuildClosedGenericControllerType(requestContext.RouteData.Values["type"]);
-
-        //    return base.GetControllerType(requestContext, controllerName);
-        //}
-
-        //private static Type BuildClosedGenericControllerType(object typeParam)
-        //{
-        //    var typeFullName = String.Format(ConfigurationHolder.ModelNamespacePattern, typeParam);
-        //    var targetType = Type.GetType(typeFullName, false);
-        //    if (targetType == null)
-        //        throw new InvalidOperationException(String.Format("El tipo {0} es desconocido.", typeFullName));
-        //    return typeof(GenericController<>).MakeGenericType(targetType);
-        //}
-
         protected override IController GetControllerInstance(RequestContext requestContext, Type controllerType)
         {
             if (controllerType == null)
@@ -52,10 +35,10 @@ namespace xpw.Web
 
         private void RegisterControllers()
         {
-            //_container.Register(
-            //    AllTypes.FromAssembly(Assembly.GetExecutingAssembly()).
-            //    BasedOn<IController>().
-            //    Configure(c => c.LifeStyle.Transient));
+            _container.Register(
+                Types.FromAssembly(Assembly.GetExecutingAssembly()).
+                BasedOn<IController>().
+                LifestyleTransient());
         }
     }
 }

@@ -59,7 +59,6 @@ namespace xpw.Web
         {
             _configure = new Configuration();
             _configure.SessionFactoryName("xpw");
-            //_configure.Proxy(p => p.ProxyFactoryFactory<ProxyFactoryFactory>());
             _configure.DataBaseIntegration(db =>
             {
                 db.Dialect<MsSql2008Dialect>();
