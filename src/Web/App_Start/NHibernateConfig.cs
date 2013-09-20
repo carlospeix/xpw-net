@@ -33,6 +33,7 @@ namespace xpw.Web
 
         public NHibernateConfig()
         {
+
             _connectionString =
                 System.Configuration.ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
@@ -61,8 +62,8 @@ namespace xpw.Web
             _configure.SessionFactoryName("xpw");
             _configure.DataBaseIntegration(db =>
             {
-                db.Dialect<MsSql2008Dialect>();
-                db.Driver<SqlClientDriver>();
+                db.Dialect<MsSqlCeDialect>();
+                db.Driver<SqlServerCeDriver>();
                 db.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
                 db.IsolationLevel = IsolationLevel.ReadCommitted;
                 db.ConnectionString = _connectionString;
