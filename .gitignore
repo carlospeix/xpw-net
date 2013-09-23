@@ -5,5 +5,5 @@ obj
 *.user
 temp
 src/packages
-src/.nuget
+*.exe
 *.sdf
