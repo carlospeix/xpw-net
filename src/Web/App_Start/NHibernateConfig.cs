@@ -22,8 +22,6 @@ namespace xpw.Web
 {
     public class NHibernateConfig
     {
-        private readonly string _connectionString;
-
         private Configuration _configure;
         private ISessionFactory _sessionFactory;
 
@@ -33,9 +31,6 @@ namespace xpw.Web
 
         public NHibernateConfig()
         {
-
-            _connectionString =
-                System.Configuration.ConfigurationManager.ConnectionStrings["connectionString"].ConnectionString;
         }
 
         #region NH Startup
@@ -59,18 +54,7 @@ namespace xpw.Web
         private void Initialize()
         {
             _configure = new Configuration();
-            _configure.SessionFactoryName("xpw");
-            _configure.DataBaseIntegration(db =>
-            {
-                db.Dialect<MsSqlCeDialect>();
-                db.Driver<SqlServerCeDriver>();
-                db.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
-                db.IsolationLevel = IsolationLevel.ReadCommitted;
-                db.ConnectionString = _connectionString;
-                db.BatchSize = 20;
-                db.Timeout = 10;
-                db.HqlToSqlSubstitutions = "true 1, false 0, yes 'Y', no 'N'";
-            });
+            _configure.Configure();
             Map();
         }
 
@@ -131,7 +115,7 @@ namespace xpw.Web
         private Mapper GetMapper()
         {
             #region Initialize ConfORM
-            var inflector = new SpanishInflector();
+            var inflector = new EnglishInflector();
 
             var orm = new ObjectRelationalMapper();
 
